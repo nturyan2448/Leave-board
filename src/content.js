@@ -7,7 +7,7 @@ class LeaveContent extends React.Component{
     render(){
         let people = this.props.content.map((x,index) => <p key={index}>{x.name}</p>)
         return(
-        <div>
+        <div className="Content">
             <h2>{this.props.date}</h2>
             {people}
         </div>

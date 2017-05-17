@@ -12,6 +12,7 @@ class Page extends React.Component{
         this.handleLogin = this.handleLogin.bind(this);
         this.handleRenderCategory = this.handleRenderCategory.bind(this);
         this.handleLeaveBox = this.handleLeaveBox.bind(this)
+        this.handleMonthChange = this.handleMonthChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleReasonChange = this.handleReasonChange.bind(this);
         this.handleLeaveSubmit = this.handleLeaveSubmit.bind(this);
@@ -106,7 +107,7 @@ class Page extends React.Component{
     render(){
         if (this.state.ID === "" || this.state.name === "")
             return (
-                <div>
+                <div className="Login">
                     <div>Please login first:</div>
                     <form onSubmit={this.handleLogin}>
                         <input type="text" value={this.state.inputName} placeholder="Name ex: 王文謙" onChange={this.handleNameChange}/>
@@ -127,7 +128,7 @@ class Page extends React.Component{
         let content = this.state.leaveData.map((x,index) => <LeaveContent key={index} date={x.date} content={x.content}/>)
         return(
             <div>
-                <div className="Login">
+                <div className="Status">
                     <p>Name: {this.state.name}</p>
                     <p>ID: {this.state.ID}</p>
                 </div>
@@ -140,8 +141,8 @@ class Page extends React.Component{
                     <button onClick={()=>{this.handleRenderCategory(5)}}>生輔</button>
                     <button onClick={()=>{this.handleRenderCategory(6)}}>器材</button>
                 </div>
-                <div>
-                    <button className="Leave" onClick={this.handleLeaveBox}>我要請假</button>
+                <div className="Leave">
+                    <button onClick={this.handleLeaveBox}>我要請假</button>
                     {showBox}
                 </div>
                 {content}
